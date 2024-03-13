@@ -1,19 +1,27 @@
 {
   "name": "vitest-tdd",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest --bail=1"
   },
   "dependencies": {
     "vue": "^3.4.19"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
+    "eslint": "^8.57.0",
+    "eslint-plugin-vitest-globals": "^1.4.0",
+    "eslint-plugin-vue": "^9.22.0",
     "vite": "^5.1.4",
     "vitest": "^1.3.1"
-  }
+  },
+  "main": "index.js",
+  "repository": "git@github.com:HigorMoroni/vitest-tdd.git",
+  "author": "Higor Moroni <higor.ferreira@melhorenvio.com>",
+  "license": "MIT"
 }
