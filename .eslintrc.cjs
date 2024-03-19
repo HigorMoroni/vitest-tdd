@@ -1,7 +1,7 @@
 module.exports = {
   'env': {
     'browser': true,
-    'es2021': true
+    'es2021': true 
   },
   'extends': [
     'eslint:recommended',
@@ -10,20 +10,16 @@ module.exports = {
   ],
   'overrides': [
     {
-      'env': {
-        'node': true
-      },
+      'env': { 'node': true },
       'files': [
         '.eslintrc.{js,cjs}'
       ],
-      'parserOptions': {
-        'sourceType': 'script'
-      }
+      'parserOptions': { 'sourceType': 'script' } 
     }
   ],
   'parserOptions': {
     'ecmaVersion': 'latest',
-    'sourceType': 'module'
+    'sourceType': 'module' 
   },
   'plugins': [
     'vue'
@@ -32,6 +28,9 @@ module.exports = {
     semi: ['error', 'always'],
     quotes: ['error', 'single'],
     indent: ['error', 2],
-    'comma-spacing': ['error', { before: false, after: true }]
+    'comma-spacing': ['error', { before: false, after: true }],
+    'semi-spacing': ['error', { before: false, after: true }],
+    'object-curly-spacing': ['error', 'always'],
+    'object-curly-newline': ['error', { 'multiline': true, 'minProperties': 4 }],
   }
 };
