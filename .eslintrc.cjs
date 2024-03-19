@@ -30,7 +30,6 @@ module.exports = {
     indent: ['error', 2],
     'comma-spacing': ['error', { before: false, after: true }],
     'semi-spacing': ['error', { before: false, after: true }],
-    'object-curly-spacing': ['error', 'always'],
-    'object-curly-newline': ['error', { 'multiline': true, 'minProperties': 4 }],
+    'object-curly-spacing': ['error', 'always']
   }
 };

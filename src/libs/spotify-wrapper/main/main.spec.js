@@ -1,10 +1,10 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   search,
   searchAlbums,
   searchArtists,
   searchTracks,
-  searchPlaylists 
+  searchPlaylists
 } from './main';
 
 describe('Spotify Wrapper', () => {
@@ -32,6 +32,27 @@ describe('Spotify Wrapper', () => {
     // Search Playlist
     it('should exist the searchPlaylists method', () => {
       expect(searchPlaylists).to.exist;
+    });
+  });
+
+  describe('Generic Search', () => {
+    it('should call fetch function', () => {
+      global.fetch = vi.fn();
+      search();
+
+      expect(fetch).toHaveBeenCalledTimes(1);
+    });
+
+    it('should receive the correct url to fetch', () => {
+      search('Alok', 'artist');
+
+      expect(fetch).toBeCalledWith('https://api.spotify.com/v1/search?q=Alok&type=artist');
+
+
+      search('Elepunk', 'album');
+
+      expect(fetch).toBeCalledWith('https://api.spotify.com/v1/search?q=Elepunk&type=album');
+
     });
   });
 });
