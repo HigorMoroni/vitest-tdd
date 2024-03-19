@@ -3,7 +3,8 @@ import {
   expect,
   it,
   vi,
-  beforeEach
+  beforeEach,
+  afterEach
 } from 'vitest';
 import {
   search,
@@ -12,6 +13,8 @@ import {
   searchTracks,
   searchPlaylists
 } from './main';
+
+import { returnsPromise } from '../../../utils/mockImplementations';
 
 describe('Spotify Wrapper', () => {
   describe('Smoke Tests', () => {
@@ -42,11 +45,11 @@ describe('Spotify Wrapper', () => {
   });
 
   describe('Generic Search', () => {
-    global.fetch = vi.fn();
-
-    beforeEach(function() {
-      fetch.mockRestore();
+    beforeEach(() => {
+      global.fetch = vi.fn().mockImplementation(returnsPromise);
     });
+
+    afterEach(() => fetch.mockRestore());
 
     it('should call fetch function', () => {
       search();
