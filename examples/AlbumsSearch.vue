@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { searchAlbums } from '@/libs/spotify-wrapper/main/main';
+import { searchAlbums } from '../src/libs/spotify-wrapper/main';
 
 const albumsList = ref([]);
 const form = ref({ query: '' });
