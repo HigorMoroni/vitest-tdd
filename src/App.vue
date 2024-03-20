@@ -1,8 +1,10 @@
 <script setup>
+import AlbumsSearch from '../examples/AlbumsSearch.vue';
+
 </script>
 
 <template>
-  <h1>Hello World!</h1>
+  <AlbumsSearch />
 </template>
 
 <style scoped>
