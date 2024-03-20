@@ -14,7 +14,7 @@ import {
   searchPlaylists
 } from './main';
 
-import { returnsPromise } from '../../../utils/mockImplementations';
+import { returnsPromise } from '@/utils/mockImplementations';
 
 describe('Spotify Wrapper', () => {
   describe('Smoke Tests', () => {
