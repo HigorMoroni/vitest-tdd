@@ -30,6 +30,14 @@ module.exports = {
     indent: ['error', 2],
     'comma-spacing': ['error', { before: false, after: true }],
     'semi-spacing': ['error', { before: false, after: true }],
-    'object-curly-spacing': ['error', 'always']
+    'object-curly-spacing': ['error', 'always'],
+    'vue/max-attributes-per-line': ['error', {
+      'singleline': {
+        'max': 3
+      },      
+      'multiline': {
+        'max': 1
+      }
+    }]
   }
 };
