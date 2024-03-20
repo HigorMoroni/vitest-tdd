@@ -45,6 +45,8 @@ describe('Spotify Wrapper', () => {
     });
   });
 
+  const fetchOptions = { headers: spotifyAccessAuth };
+
   describe('Search Methods', () => {
     beforeEach(() => {
       global.fetch = vi.fn().mockImplementation(returnsPromise);
@@ -61,16 +63,16 @@ describe('Spotify Wrapper', () => {
       describe('should receive the correct URL to fetch', () => {
         it('passing one type', () => {
           search('Alok', 'artist');
-          expect(fetch).toBeCalledWith('https://api.spotify.com/v1/search?q=Alok&type=artist');
+          expect(fetch).toBeCalledWith('https://api.spotify.com/v1/search?q=Alok&type=artist', fetchOptions);
     
           search('Elepunk', 'album');
-          expect(fetch).toBeCalledWith('https://api.spotify.com/v1/search?q=Alok&type=artist'); // Testando que o toBeCalledWith não se refere a ultima chamada!
-          expect(fetch).toHaveBeenLastCalledWith('https://api.spotify.com/v1/search?q=Elepunk&type=album');
+          expect(fetch).toBeCalledWith('https://api.spotify.com/v1/search?q=Alok&type=artist', fetchOptions); // Testando que o toBeCalledWith não se refere a ultima chamada!
+          expect(fetch).toHaveBeenLastCalledWith('https://api.spotify.com/v1/search?q=Elepunk&type=album', fetchOptions);
         });
   
         it('passing two or more types', () => {
           search('Metallica', ['artist', 'album', 'playlist']);
-          expect(fetch).toBeCalledWith('https://api.spotify.com/v1/search?q=Metallica&type=artist,album,playlist');
+          expect(fetch).toBeCalledWith('https://api.spotify.com/v1/search?q=Metallica&type=artist,album,playlist', fetchOptions);
         });
       });
   
@@ -91,10 +93,10 @@ describe('Spotify Wrapper', () => {
 
       it('should call fetch with the correct URL', () => {
         searchArtists('Projota');
-        expect(fetch).toBeCalledWith('https://api.spotify.com/v1/search?q=Projota&type=artist');
+        expect(fetch).toBeCalledWith('https://api.spotify.com/v1/search?q=Projota&type=artist', fetchOptions);
 
         searchArtists('Muse');
-        expect(fetch).toBeCalledWith('https://api.spotify.com/v1/search?q=Muse&type=artist');
+        expect(fetch).toBeCalledWith('https://api.spotify.com/v1/search?q=Muse&type=artist', fetchOptions);
       });
     });
 
@@ -107,10 +109,10 @@ describe('Spotify Wrapper', () => {
 
       it('should call fetch with the correct URL', () => {
         searchAlbums('SOUR');
-        expect(fetch).toBeCalledWith('https://api.spotify.com/v1/search?q=SOUR&type=album');
+        expect(fetch).toBeCalledWith('https://api.spotify.com/v1/search?q=SOUR&type=album', fetchOptions);
 
         searchAlbums('PIRATA');
-        expect(fetch).toBeCalledWith('https://api.spotify.com/v1/search?q=PIRATA&type=album');
+        expect(fetch).toBeCalledWith('https://api.spotify.com/v1/search?q=PIRATA&type=album', fetchOptions);
       });
     });
 
@@ -123,10 +125,10 @@ describe('Spotify Wrapper', () => {
 
       it('should call fetch with the correct URL', () => {
         searchTracks('Leão');
-        expect(fetch).toBeCalledWith('https://api.spotify.com/v1/search?q=Leão&type=track');
+        expect(fetch).toBeCalledWith('https://api.spotify.com/v1/search?q=Leão&type=track', fetchOptions);
 
         searchTracks('Medicina');
-        expect(fetch).toBeCalledWith('https://api.spotify.com/v1/search?q=Medicina&type=track');
+        expect(fetch).toBeCalledWith('https://api.spotify.com/v1/search?q=Medicina&type=track', fetchOptions);
       });
     });
 
@@ -139,10 +141,10 @@ describe('Spotify Wrapper', () => {
 
       it('should call fetch with the correct URL', () => {
         searchPlaylists('Melhores');
-        expect(fetch).toBeCalledWith('https://api.spotify.com/v1/search?q=Melhores&type=playlist');
+        expect(fetch).toBeCalledWith('https://api.spotify.com/v1/search?q=Melhores&type=playlist', fetchOptions);
 
         searchPlaylists('Pagodão');
-        expect(fetch).toBeCalledWith('https://api.spotify.com/v1/search?q=Pagodão&type=playlist');
+        expect(fetch).toBeCalledWith('https://api.spotify.com/v1/search?q=Pagodão&type=playlist', fetchOptions);
       });
     });
   });
