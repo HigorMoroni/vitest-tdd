@@ -1,13 +1,16 @@
-import spotifyAccessAuth from '../../../auth/spotify-access-auth';
+import { fetchDefaultOptions } from '../configs';
+import responseToJson from '../../../utils/responseToJson';
 
-export const getAlbum = id => 
-  fetch(`https://api.spotify.com/v1/albums/${id}`, { headers: spotifyAccessAuth })
-    .then(data => data.json());
+const API_URL = import.meta.env.VITE_SPOTIFY_API_URL;
 
-export const getAlbums = ids => 
-  fetch(`https://api.spotify.com/v1/albums?ids=${ids}`, { headers: spotifyAccessAuth })
-    .then(data => data.json());
+export const getAlbum = id => {
+  return fetch(`${API_URL}/albums/${id}`, fetchDefaultOptions).then(responseToJson);
+};
 
-export const getAlbumTracks = id => 
-  fetch(`https://api.spotify.com/v1/albums/${id}/tracks`, { headers: spotifyAccessAuth })
-    .then(data => data.json());
+export const getAlbums = ids => {
+  return fetch(`${API_URL}/albums?ids=${ids}`, fetchDefaultOptions).then(responseToJson);
+};
+  
+export const getAlbumTracks = id => {
+  return fetch(`${API_URL}/albums/${id}/tracks`, fetchDefaultOptions).then(responseToJson);
+};

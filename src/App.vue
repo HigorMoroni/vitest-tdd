@@ -1,5 +1,5 @@
 <script setup>
-import AlbumsSearch from '../examples/AlbumsSearch.vue';
+import AlbumsSearch from './components/examples/AlbumsSearch.vue';
 
 </script>
 

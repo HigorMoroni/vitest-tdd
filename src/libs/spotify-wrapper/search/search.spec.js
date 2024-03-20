@@ -17,7 +17,7 @@ import {
 import { returnsPromise } from '../../../utils/mockImplementations';
 import spotifyAccessAuth from '../../../auth/spotify-access-auth';
 
-describe('Spotify Wrapper', () => {
+describe('Search', () => {
   describe('Smoke Tests', () => {
     // Search All
     it('should exist the search method', () => {
@@ -47,7 +47,7 @@ describe('Spotify Wrapper', () => {
 
   const fetchOptions = { headers: spotifyAccessAuth };
 
-  describe('Search Methods', () => {
+  describe('Methods', () => {
     beforeEach(() => {
       global.fetch = vi.fn().mockImplementation(returnsPromise);
     });
