@@ -12,9 +12,10 @@ import {
   searchArtists,
   searchTracks,
   searchPlaylists
-} from './main';
+} from './index';
 
-import { returnsPromise } from '@/utils/mockImplementations';
+import { returnsPromise } from '../../../utils/mockImplementations';
+import spotifyAccessAuth from '../../../auth/spotify-access-auth';
 
 describe('Spotify Wrapper', () => {
   describe('Smoke Tests', () => {

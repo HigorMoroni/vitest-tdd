@@ -10,10 +10,5 @@ export default defineConfig({
         isCustomElement: (tag) => ['ion-icon'].includes(tag),
       }
     }
-  })],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, 'src'),
-    }
-  }
+  })]
 });
