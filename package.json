@@ -11,6 +11,7 @@
     "test:coverage": "vitest --coverage"
   },
   "dependencies": {
+    "buffer": "^6.0.3",
     "vue": "^3.4.19"
   },
   "devDependencies": {
